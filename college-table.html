@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CSV Table | College Atlas</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="assets/styles.css">
+  </head>
+  <body class="doc-body">
+    <header class="doc-top">
+      <a class="back-link" href="index.html">Back to atlas</a>
+      <div>
+        <p class="eyebrow">College Atlas</p>
+        <h1>CSV Table</h1>
+        <p>Search the generated shortlist data without opening a spreadsheet.</p>
+      </div>
+      <nav class="doc-actions" aria-label="CSV links">
+        <a href="best-plan.html">Best plan</a>
+        <a href="outputs/college_shortlist.csv">Raw CSV</a>
+      </nav>
+    </header>
+
+    <main class="csv-page">
+      <section class="csv-toolbar" aria-label="CSV controls">
+        <label class="field-label" for="csvSearch">Search colleges, states, bands, or program signals</label>
+        <input id="csvSearch" type="search" placeholder="Try UCSD, neuro, accessible, materials...">
+        <p id="csvSummary" class="section-note" role="status" aria-live="polite">Loading CSV...</p>
+      </section>
+      <div class="csv-table-wrap">
+        <table id="csvTable" class="csv-table"></table>
+      </div>
+    </main>
+
+    <script src="assets/report-page.js"></script>
+  </body>
+</html>

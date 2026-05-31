@@ -1706,6 +1706,167 @@ select {
   margin-bottom: 4px;
 }
 
+.doc-body {
+  min-height: 100vh;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+.doc-top {
+  display: grid;
+  grid-template-columns: minmax(120px, 180px) minmax(0, 1fr) minmax(180px, auto);
+  gap: 18px;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.doc-top h1 {
+  margin: 0;
+  font-size: 1.9rem;
+}
+
+.doc-top p {
+  margin: 7px 0 0;
+  color: var(--muted);
+}
+
+.back-link,
+.doc-actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.doc-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.doc-shell {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 18px;
+  padding: 18px;
+}
+
+.doc-side,
+.report-card,
+.csv-toolbar,
+.csv-table-wrap {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+
+.doc-side {
+  position: sticky;
+  top: 18px;
+  align-self: start;
+  padding: 16px;
+}
+
+.doc-side h2 {
+  font-size: 1rem;
+}
+
+.doc-side ul {
+  margin: 12px 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.report-card {
+  padding: 22px;
+}
+
+.report-card h1,
+.report-card h2,
+.report-card h3 {
+  margin-top: 22px;
+}
+
+.report-card h1:first-child,
+.report-card h2:first-child {
+  margin-top: 0;
+}
+
+.report-card p,
+.report-card li {
+  color: #435164;
+  line-height: 1.55;
+}
+
+.report-card code {
+  padding: 2px 5px;
+  border-radius: 5px;
+  background: #eef3f8;
+}
+
+.report-table-wrap,
+.csv-table-wrap {
+  width: 100%;
+  overflow: auto;
+}
+
+.report-card table,
+.csv-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.report-card th,
+.report-card td,
+.csv-table th,
+.csv-table td {
+  padding: 10px 11px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.report-card th,
+.csv-table th {
+  background: #f3f7fb;
+  color: #344257;
+  font-weight: 850;
+}
+
+.csv-page {
+  padding: 18px;
+}
+
+.csv-toolbar {
+  margin-bottom: 14px;
+  padding: 16px;
+}
+
+.csv-toolbar input {
+  width: 100%;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+}
+
+.error-text {
+  color: #9f2f1d;
+  font-weight: 800;
+}
+
 @media (max-width: 1220px) {
   .app-shell {
     --filters-width: 280px;
@@ -1783,6 +1944,8 @@ select {
   }
 
   .top-band,
+  .doc-top,
+  .doc-shell,
   .section-head,
   .insight-grid,
   .guide-grid,
@@ -1812,6 +1975,10 @@ select {
     left: 0;
     right: 0;
     grid-template-columns: 1fr;
+  }
+
+  .doc-side {
+    position: static;
   }
 
   .source-note {
