@@ -7,9 +7,16 @@
     <link rel="icon" href="data:,">
     <link rel="stylesheet" href="assets/styles.css">
   </head>
-  <body>
+  <body class="detail-collapsed">
+    <a class="skip-link" href="#mainContent">Skip to college planner</a>
     <div class="app-shell">
       <aside class="controls" aria-label="College filters">
+        <button id="toggleFilters" class="rail-toggle filters-toggle" type="button" aria-label="Collapse filters" aria-expanded="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m15 18-6-6 6-6"></path>
+          </svg>
+          <span>Filters</span>
+        </button>
         <div class="brand-block">
           <div class="brand-mark" aria-hidden="true">
             <span></span>
@@ -17,9 +24,19 @@
             <span></span>
           </div>
           <div>
-            <p class="eyebrow">Avij's College Atlas</p>
-            <h1>Materials, Bio, Neuro, Medicine</h1>
+            <p class="eyebrow">College strategy atlas</p>
+            <h1>Avij Asarawala</h1>
           </div>
+        </div>
+
+        <div class="sidebar-guide" aria-label="How to use this planner">
+          <strong>Use in this order</strong>
+          <ol>
+            <li>Pick the pathway you want to test.</li>
+            <li>Build a balanced list by admit-rate band.</li>
+            <li>Open each school and verify the major, lab, and pre-med path.</li>
+            <li>Use Profile Builder to decide what evidence to add next.</li>
+          </ol>
         </div>
 
         <label class="field-label" for="searchInput">Search schools or states</label>
@@ -34,13 +51,32 @@
         <div class="control-group">
           <p class="field-label">Pathway lens</p>
           <div class="segmented" role="group" aria-label="Pathway lens">
-            <button class="seg-button active" data-track="biomaterials" type="button">Biomaterials</button>
-            <button class="seg-button" data-track="surgeon" type="button">Surgeon</button>
-            <button class="seg-button" data-track="materials" type="button">Materials</button>
-            <button class="seg-button" data-track="california" type="button">CA value</button>
+            <button class="seg-button active" data-track="biomaterials" type="button" aria-pressed="true">
+              <span>Biomaterials</span>
+              <small>research bridge</small>
+            </button>
+            <button class="seg-button" data-track="surgeon" type="button" aria-pressed="false" title="Pre-med means medical-school readiness, not an undergraduate surgery major.">
+              <span>Pre-med</span>
+              <small>medicine path</small>
+            </button>
+            <button class="seg-button" data-track="bioNeuro" type="button" aria-pressed="false" title="Bio/neuro emphasizes neuroscience, cell biology, computational biology, imaging, and medicine-facing research.">
+              <span>Bio/neuro</span>
+              <small>life science</small>
+            </button>
+            <button class="seg-button" data-track="materials" type="button" aria-pressed="false" title="Materials means engineering and MSE depth, with pre-med feasibility checked separately.">
+              <span>Materials</span>
+              <small>MSE depth</small>
+            </button>
+            <button class="seg-button" data-track="california" type="button" aria-pressed="false" title="California value emphasizes practical in-state public options.">
+              <span>CA value</span>
+              <small>public options</small>
+            </button>
           </div>
         </div>
+        <a class="mobile-jump" href="#boardTitle">View balanced list</a>
 
+        <details class="advanced-filters">
+          <summary>Advanced filters</summary>
         <div class="control-group">
           <div class="range-head">
             <label class="field-label" for="scoreRange">Minimum fit score</label>
@@ -79,6 +115,7 @@
             <option value="netprice">Net price, lower first</option>
           </select>
         </div>
+        </details>
 
         <button id="resetFilters" class="ghost-button" type="button">
           <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -93,23 +130,69 @@
         <div class="source-note">
           <p>Static site generated from College Scorecard data and the local shortlist script.</p>
           <p>Score is a relative shortlist fit index, not an admissions chance or school quality ranking. Admit-rate bands are not personal estimates.</p>
-          <p>No undergrad "surgeon" major exists. The surgeon lens emphasizes pre-med readiness, clinical access, biology, outcomes, and research.</p>
+          <p>Pre-med means undergraduate readiness for medical school: grades, prerequisites, advising, clinical exposure, biology, chemistry, and research.</p>
           <p>Curated notes flag where official department pages, cost, major-level selectivity, and research access still need manual verification.</p>
         </div>
       </aside>
 
-      <main class="workspace">
+      <main id="mainContent" class="workspace" tabindex="-1">
         <section class="top-band" aria-labelledby="overviewTitle">
           <div>
-            <p class="eyebrow">Interactive shortlist builder</p>
-            <h2 id="overviewTitle">Find colleges that keep every path alive.</h2>
-            <p class="lede">A visual screen for biomaterials, neural tissue research, pre-med, possible surgery, and California value.</p>
+            <p class="eyebrow">Interactive shortlist planner</p>
+            <h2 id="overviewTitle">Find colleges that keep the right doors open.</h2>
+            <p class="lede">Compare schools for biomaterials research, materials science, biology/neuroscience, and the pre-med preparation needed if surgery stays on the table.</p>
           </div>
           <div class="top-actions">
-            <a href="outputs/deeper_college_recommendations.md">Best list</a>
-            <a href="outputs/college_shortlist.md">Read report</a>
-            <a href="outputs/college_shortlist.csv">Open CSV</a>
+            <a class="primary-link" href="outputs/deeper_college_recommendations.md">Best list</a>
+            <a href="outputs/profile_improvement_roadmap.md">Profile roadmap</a>
+            <div class="download-links" aria-label="Downloads">
+              <span>Downloads</span>
+              <a href="outputs/college_shortlist.md">Report</a>
+              <a href="outputs/college_shortlist.csv">CSV</a>
+            </div>
           </div>
+        </section>
+
+        <section class="guide-grid" aria-label="Quick guide">
+          <article class="guide-card">
+            <span>1</span>
+            <div>
+              <h3>Pick a lens</h3>
+              <p>Start with Biomaterials. Switch to Pre-med when the main question is medical-school readiness, not an undergraduate surgery major.</p>
+            </div>
+          </article>
+          <article class="guide-card">
+            <span>2</span>
+            <div>
+              <h3>Read the map</h3>
+              <p>Up means stronger fit for the selected pathway. Right means higher overall admit rate. These are school-level bands, not personal odds.</p>
+            </div>
+          </article>
+          <article class="guide-card">
+            <span>3</span>
+            <div>
+              <h3>Inspect tradeoffs</h3>
+              <p>Open a school to see materials path, clinical path, curated tags, and what still needs manual verification.</p>
+            </div>
+          </article>
+          <article class="guide-card">
+            <span>4</span>
+            <div>
+              <h3>Build the profile</h3>
+              <p>Use the profile plan to add evidence: quantified research, clinical service, outreach, and school-specific lab fit.</p>
+            </div>
+          </article>
+        </section>
+
+        <section class="board-section" aria-labelledby="boardTitle" tabindex="-1">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Application mix</p>
+              <h2 id="boardTitle">Build a balanced list</h2>
+            </div>
+            <p class="section-note">Start here before over-reading rankings. Click a school to inspect the real path fit and verification notes.</p>
+          </div>
+          <div id="bandBoard" class="band-board"></div>
         </section>
 
         <section class="insight-grid" aria-label="Summary">
@@ -141,20 +224,16 @@
           </div>
         </section>
 
-        <section class="plot-section" aria-labelledby="plotTitle">
+        <section class="results-section" aria-labelledby="resultsTitle">
           <div class="section-head">
             <div>
-              <p class="eyebrow">Fit versus access</p>
-              <h2 id="plotTitle">Admissions map</h2>
+              <p class="eyebrow">Sortable school cards</p>
+              <h2 id="resultsTitle">Shortlist</h2>
             </div>
-            <div class="legend" aria-label="Admissions band legend">
-              <span><i class="dot far"></i>Far reach</span>
-              <span><i class="dot reach"></i>Reach</span>
-              <span><i class="dot comp"></i>Competitive</span>
-              <span><i class="dot open"></i>Accessible</span>
-            </div>
+            <p id="resultSummary" class="section-note" role="status" aria-live="polite" aria-atomic="true"></p>
           </div>
-          <div id="plot" class="plot" role="region" aria-label="Interactive scatter plot of fit score by admit-rate band"></div>
+          <div id="cards" class="cards"></div>
+          <p class="score-legend">Score bars: Materials = MSE/biomaterials depth, Bio/neuro = biology/neuroscience strength, Profile = match to Avij's current resume and story.</p>
         </section>
 
         <section class="analysis-section" aria-labelledby="analysisTitle">
@@ -168,10 +247,11 @@
           <div class="analysis-layout">
             <div class="strategy-panel">
               <div class="analysis-tabs" role="group" aria-label="Analysis pathway">
-                <button class="analysis-tab active" data-analysis="surgeon" type="button">Surgeon</button>
-                <button class="analysis-tab" data-analysis="physicianScientist" type="button">Physician-scientist</button>
-                <button class="analysis-tab" data-analysis="biomaterials" type="button">Biomaterials</button>
-                <button class="analysis-tab" data-analysis="materials" type="button">Materials</button>
+                <button class="analysis-tab active" data-analysis="surgeon" type="button" aria-pressed="true">Pre-med/medicine</button>
+                <button class="analysis-tab" data-analysis="physicianScientist" type="button" aria-pressed="false">Physician-scientist</button>
+                <button class="analysis-tab" data-analysis="biomaterials" type="button" aria-pressed="false">Biomaterials</button>
+                <button class="analysis-tab" data-analysis="bioNeuro" type="button" aria-pressed="false">Bio/neuro</button>
+                <button class="analysis-tab" data-analysis="materials" type="button" aria-pressed="false">Materials</button>
               </div>
               <div class="strategy-copy">
                 <h3 id="analysisModeTitle"></h3>
@@ -199,30 +279,119 @@
           </div>
         </section>
 
-        <section class="board-section" aria-labelledby="boardTitle">
+        <section class="profile-section" aria-labelledby="profileTitle">
           <div class="section-head">
             <div>
-              <p class="eyebrow">Application mix</p>
-              <h2 id="boardTitle">Build a balanced list</h2>
+              <p class="eyebrow">Profile builder</p>
+              <h2 id="profileTitle">What to add before applications</h2>
             </div>
-            <p class="section-note">Click a school anywhere to inspect it. Add up to three schools to compare.</p>
+            <p class="section-note">Use this as the action plan: each move tells you what proof to add and which college group it helps.</p>
           </div>
-          <div id="bandBoard" class="band-board"></div>
+          <div class="profile-priority-strip" aria-label="Do these first">
+            <div>
+              <span>01</span>
+              <strong>Quantified research artifact</strong>
+              <p>Poster, abstract, figure panel, and one measurable ASDRP result.</p>
+            </div>
+            <div>
+              <span>02</span>
+              <strong>Computational microscopy portfolio</strong>
+              <p>Python/ImageJ/Fiji workflow with metrics, controls, and limitations.</p>
+            </div>
+            <div>
+              <span>03</span>
+              <strong>Sustained clinical/service role</strong>
+              <p>One consistent patient-facing or health-service commitment with reflection.</p>
+            </div>
+          </div>
+          <div class="profile-tabs" role="group" aria-label="Profile improvement focus">
+            <button class="profile-tab active" data-profile="priority" type="button" aria-pressed="true">Highest leverage</button>
+            <button class="profile-tab" data-profile="materials" type="button" aria-pressed="false">Materials schools</button>
+            <button class="profile-tab" data-profile="bioNeuro" type="button" aria-pressed="false">Bio/neuro</button>
+            <button class="profile-tab" data-profile="clinical" type="button" aria-pressed="false">Medicine path</button>
+            <button class="profile-tab" data-profile="packaging" type="button" aria-pressed="false">Application polish</button>
+          </div>
+          <div class="profile-layout">
+            <div>
+              <div class="profile-goal-card">
+                <p class="eyebrow">Selected profile goal</p>
+                <h3 id="profileGoalTitle"></h3>
+                <p id="profileGoalCopy"></p>
+              </div>
+              <div id="profileGapGrid" class="gap-grid"></div>
+              <div id="profileMoves" class="profile-moves"></div>
+            </div>
+            <div class="cluster-panel">
+              <div class="portfolio-head">
+                <div>
+                  <p class="eyebrow">College alignment</p>
+                  <h3 id="clusterTitle"></h3>
+                </div>
+                <span id="clusterCount" class="portfolio-count"></span>
+              </div>
+              <div id="profileClusters" class="cluster-grid"></div>
+            </div>
+          </div>
+          <div class="timeline-panel">
+            <div>
+              <p class="eyebrow">Timeline</p>
+              <h3>What to build, in order</h3>
+            </div>
+            <div id="profileTimeline" class="timeline-grid"></div>
+          </div>
+          <div class="evidence-strip">
+            <div>
+              <p class="eyebrow">Evidence to capture</p>
+              <h3>What should appear on the resume or activity list</h3>
+            </div>
+            <div id="evidenceChecklist" class="evidence-grid"></div>
+          </div>
+          <div class="wording-panel">
+            <div>
+              <p class="eyebrow">Application language</p>
+              <h3>Translate the work into concise claims</h3>
+            </div>
+            <div id="wordingBank" class="wording-grid"></div>
+          </div>
         </section>
 
-        <section class="results-section" aria-labelledby="resultsTitle">
+        <section class="plot-section" aria-labelledby="plotTitle">
           <div class="section-head">
             <div>
-              <p class="eyebrow">Sortable school cards</p>
-              <h2 id="resultsTitle">Shortlist</h2>
+              <p class="eyebrow">Fit versus access</p>
+              <h2 id="plotTitle">Admissions map</h2>
             </div>
-            <p id="resultSummary" class="section-note"></p>
+            <div class="legend" aria-label="Admissions band legend">
+              <span><i class="dot far"></i>Far reach</span>
+              <span><i class="dot reach"></i>Reach</span>
+              <span><i class="dot comp"></i>Competitive</span>
+              <span><i class="dot open"></i>Accessible</span>
+            </div>
           </div>
-          <div id="cards" class="cards"></div>
+          <p class="map-guide">Higher points are stronger matches for the selected lens. Points farther right are more accessible by overall admit rate. Click any point to inspect the school.</p>
+          <div id="plot" class="plot" role="region" aria-label="Interactive scatter plot of fit score by admit-rate band"></div>
+          <div class="plot-list" aria-label="Admissions map text summary">
+            <h3>Top plotted schools</h3>
+            <div id="plotList" class="plot-list-grid"></div>
+          </div>
         </section>
+
+        <details class="mobile-source-notes">
+          <summary>Data notes</summary>
+          <p>Static site generated from College Scorecard data and the local shortlist script.</p>
+          <p>Score is a relative shortlist fit index, not an admissions chance or school quality ranking. Admit-rate bands are not personal estimates.</p>
+          <p>Pre-med means undergraduate readiness for medical school: grades, prerequisites, advising, clinical exposure, biology, chemistry, and research.</p>
+          <p>Curated notes flag where official department pages, cost, major-level selectivity, and research access still need manual verification.</p>
+        </details>
       </main>
 
-      <aside class="detail-panel" aria-label="Selected school detail">
+      <aside class="detail-panel" aria-label="Selected school detail" role="dialog" aria-modal="false">
+        <button id="toggleDetail" class="rail-toggle detail-toggle" type="button" aria-label="Expand school detail" aria-expanded="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m9 18 6-6-6-6"></path>
+          </svg>
+          <span>Detail</span>
+        </button>
         <div class="detail-empty" id="detailEmpty">
           <p class="eyebrow">School detail</p>
           <h2>Select a school</h2>
@@ -238,17 +407,12 @@
           <p class="eyebrow" id="detailBand"></p>
           <h2 id="detailName"></h2>
           <p id="detailMeta" class="detail-meta"></p>
-          <div class="score-ring" aria-label="Current fit score">
-            <span id="detailScore">0</span>
-            <p>lens score</p>
-          </div>
-          <div id="detailBars" class="detail-bars"></div>
           <div class="detail-block">
-            <h3>Why it fits</h3>
+            <h3>Best reason to consider it</h3>
             <p id="detailWhy"></p>
           </div>
           <div class="detail-block">
-            <h3>Watch-out</h3>
+            <h3>What to verify</h3>
             <p id="detailCaution"></p>
           </div>
           <div class="detail-block">
@@ -260,11 +424,20 @@
             <p id="detailNuance"></p>
           </div>
           <div class="detail-block path-checks">
-            <h3>Path checks</h3>
+            <h3>Pathway reality check</h3>
             <p><strong>Materials path:</strong> <span id="detailMaterialsPath"></span></p>
             <p><strong>Clinical path:</strong> <span id="detailClinicalPath"></span></p>
             <p><strong>Manual verification:</strong> <span id="detailVerification"></span></p>
           </div>
+          <div class="detail-block">
+            <h3>First-pass profile moves for this school</h3>
+            <div id="detailProfileMoves" class="profile-mini-list"></div>
+          </div>
+          <div class="score-ring" aria-label="Current fit score">
+            <span id="detailScore">0</span>
+            <p>lens score</p>
+          </div>
+          <div id="detailBars" class="detail-bars"></div>
           <div class="detail-block">
             <h3>Program signals</h3>
             <div id="detailPrograms" class="program-tags"></div>
@@ -286,6 +459,7 @@
     </div>
 
     <div id="tooltip" class="tooltip hidden" role="status"></div>
+    <div id="statusAnnouncer" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
 
     <script src="assets/college-data.js"></script>
     <script src="assets/curated-insights.js"></script>
