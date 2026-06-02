@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Research Collaborators | College Atlas</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="assets/styles.css">
+  </head>
+  <body class="doc-body collab-body">
+    <header class="doc-top">
+      <a class="back-link" href="index.html">Back to atlas</a>
+      <div>
+        <p class="eyebrow">College Atlas</p>
+        <h1>Research Collaborators</h1>
+        <p>Materials science, biomaterials, neural-interface, and medicine-facing labs ranked for Avij's current research direction.</p>
+      </div>
+      <nav class="doc-actions" aria-label="Collaborator links">
+        <a href="best-plan.html">Best plan</a>
+        <a href="college-table.html">CSV page</a>
+      </nav>
+    </header>
+
+    <main class="collab-page">
+      <section class="collab-hero" aria-labelledby="collabTitle">
+        <div>
+          <p class="eyebrow">Relevance first</p>
+          <h2 id="collabTitle">Find labs before writing the outreach email.</h2>
+          <p>Default ranking rewards topic match first. Distance is visible and sortable, but far-away labs can still stay near the top when the materials-bio-neuro fit is strong.</p>
+        </div>
+        <div class="collab-metrics" aria-label="Collaborator summary">
+          <div>
+            <strong id="collabCount">0</strong>
+            <span>visible</span>
+          </div>
+          <div>
+            <strong id="localCount">0</strong>
+            <span>Bay Area/NorCal</span>
+          </div>
+          <div>
+            <strong id="topScore">0</strong>
+            <span>top score</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="collab-tools" aria-label="Collaborator filters">
+        <div class="collab-search">
+          <label class="field-label" for="collabSearch">Search names, labs, methods, or locations</label>
+          <input id="collabSearch" type="search" placeholder="Try hydrogels, surgeon, vesicles, Stanford...">
+        </div>
+        <div>
+          <label class="field-label" for="collabSort">Sort</label>
+          <select id="collabSort">
+            <option value="relevance">Relevance</option>
+            <option value="distance">Distance</option>
+            <option value="access">First-contact fit</option>
+            <option value="materials">Materials fit</option>
+            <option value="bioMed">Bio/medicine fit</option>
+            <option value="neuro">Neuro/clinical fit</option>
+            <option value="institution">Institution</option>
+          </select>
+        </div>
+        <div>
+          <label class="field-label" for="radiusFilter">Radius</label>
+          <select id="radiusFilter">
+            <option value="all">All radii</option>
+            <option value="Bay Area">Bay Area</option>
+            <option value="Northern CA">Northern CA</option>
+            <option value="California">California</option>
+            <option value="West">West</option>
+            <option value="National">National</option>
+          </select>
+        </div>
+        <div>
+          <label class="field-label" for="trackFilter">Track</label>
+          <select id="trackFilter">
+            <option value="all">All tracks</option>
+          </select>
+        </div>
+      </section>
+
+      <section class="collab-tabs" aria-label="Quick filters">
+        <button class="collab-chip active" type="button" data-quick="all" aria-pressed="true">All</button>
+        <button class="collab-chip" type="button" data-quick="local" aria-pressed="false">First outreach</button>
+        <button class="collab-chip" type="button" data-quick="neuro" aria-pressed="false">Neuro/clinical</button>
+        <button class="collab-chip" type="button" data-quick="vesicles" aria-pressed="false">Vesicles/delivery</button>
+        <button class="collab-chip" type="button" data-quick="national" aria-pressed="false">Far but relevant</button>
+      </section>
+
+      <section class="collab-content" aria-labelledby="collabResultsTitle">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Collaborator map</p>
+            <h2 id="collabResultsTitle">Potential research contacts</h2>
+          </div>
+          <p id="collabSummary" class="section-note" role="status" aria-live="polite"></p>
+        </div>
+        <div id="collabGrid" class="collab-grid"></div>
+      </section>
+
+      <section class="collab-brief" aria-labelledby="outreachTitle">
+        <div>
+          <p class="eyebrow">Outreach framing</p>
+          <h2 id="outreachTitle">Use the list to build a real lab map.</h2>
+        </div>
+        <div class="collab-brief-grid">
+          <article>
+            <h3>Start local</h3>
+            <p>SJSU, SCU, UC Davis, Berkeley, Stanford, UCSF, and UCSC are marked separately so first-contact targets do not disappear behind national prestige labs.</p>
+          </article>
+          <article>
+            <h3>Keep far labs</h3>
+            <p>MIT, Hopkins, Duke, Northwestern, Rice, Harvard, and UIUC entries stay sortable by relevance because they are strong models for the research story.</p>
+          </article>
+          <article>
+            <h3>Ask better questions</h3>
+            <p>Every card names a narrow outreach angle: vesicles, hydrogels, neural interfaces, scaffolds, drug delivery, or clinical translation.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <script src="assets/collaborator-data.js"></script>
+    <script src="assets/collaborators.js"></script>
+  </body>
+</html>
