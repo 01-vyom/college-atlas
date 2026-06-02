@@ -2397,7 +2397,6 @@ select {
 @media (max-width: 640px) {
   .band-board,
   .cards,
-  .collab-metrics,
   .collab-brief-grid,
   .compare-grid,
   .metric-panel,
@@ -2454,6 +2453,19 @@ select {
 
   .collab-methods {
     grid-template-columns: 1fr;
+  }
+
+  .collab-metrics {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .collab-metrics div {
+    min-height: 94px;
+    padding: 10px 8px;
+  }
+
+  .collab-metrics span {
+    font-size: 0.66rem;
   }
 
   .collab-score-row {
