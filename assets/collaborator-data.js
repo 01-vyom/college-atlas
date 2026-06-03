@@ -308,7 +308,7 @@ window.COLLABORATORS = [
     accessFit: 86,
     tracks: ["biomaterials", "cardiovascular", "drug-delivery"],
     methods: ["cardiovascular biomaterials", "nanoparticles", "mechanotransduction", "endothelial biology"],
-    fit: "Nearby and plausibly more reachable than elite R1 labs; useful first-contact target.",
+    fit: "Nearby and plausibly more reachable than elite R1 labs; useful early-outreach target.",
     outreach: "Strong candidate for a concise local outreach email with project abstract and availability.",
     sourceUrl: "https://www.sjsu.edu/bme/research/jurney.php",
     sourceLabel: "SJSU BME"

@@ -227,7 +227,7 @@
           ${renderBar("Materials", item.materialsFit, "materials")}
           ${renderBar("Bio/medicine", item.bioMedFit, "biomed")}
           ${renderBar("Neuro/clinical", item.neuroClinicalFit, "neuro")}
-          ${renderBar("First contact", item.accessFit, "access")}
+          ${renderBar("Outreach", item.accessFit, "access")}
         </div>
         <div class="collab-tags">${tracks}</div>
         <ul class="collab-methods">${methods}</ul>
@@ -266,7 +266,7 @@
     const labels = {
       relevance: "relevance",
       distance: "distance",
-      access: "first-contact fit",
+      access: "outreach realism",
       materials: "materials fit",
       bioMed: "bio/medicine fit",
       neuro: "neuro/clinical fit",
@@ -277,7 +277,7 @@
 
   function quickLabel(value) {
     const labels = {
-      local: "first outreach",
+      local: "reachable/local",
       neuro: "neuro/clinical",
       vesicles: "vesicles/delivery",
       national: "far but relevant"

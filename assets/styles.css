@@ -1980,6 +1980,13 @@ select {
   color: #075f59;
 }
 
+.collab-metric-note {
+  margin: -4px 0 16px;
+  color: #536172;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
 .collab-content {
   margin-top: 16px;
 }
